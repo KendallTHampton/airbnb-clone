@@ -85,7 +85,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
 								/>
 								<MenuItem
 									onClick={() => signOut()}
-									label={"Logout"}
+									label={"Log Out"}
 								/>
 							</>
 						) :
