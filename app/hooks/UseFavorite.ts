@@ -2,7 +2,6 @@
 import axios from 'axios'
 import {useRouter} from 'next/navigation'
 import {useCallback, useMemo} from 'react'
-import {POST, DELETE} from '../api/favorites/[listingId]/route'
 import {SafeUser} from '../types'
 import useLoginModal from './LoginModalHook'
 import toast from 'react-hot-toast'
@@ -38,9 +37,9 @@ const useFavorite = ({listingId, currentUser}: IUseFavoriteId) => {
         try {
             let request
             if (hasFavorited) {
-                request = () => axios.delete(`/api/${listingId}`)
+                request = () => axios.delete(`/api/favorites/${listingId}`)
             } else {
-                request = () => axios.post(`/api/${listingId}`)
+                request = () => axios.post(`/api/favorites/${listingId}`)
             }
             await request()
             router.refresh()
